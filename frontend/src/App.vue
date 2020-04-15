@@ -69,8 +69,8 @@ export default {
     menuLinks: [
       {
         icon: "people",
-        label: "Clientes Inadimplentes"
-      }
+        label: "Clientes Inadimplentes",
+      },
     ],
     loading: true,
     search: "",
@@ -78,12 +78,12 @@ export default {
       {
         text: "Nome do cliente",
         align: "start",
-        value: "name"
+        value: "name",
       },
       { text: "Valor", value: "value" },
-      { text: "Desde", value: "date" }
+      { text: "Desde", value: "date" },
     ],
-    clients: []
+    clients: [],
   }),
   created() {
     this.apiIndex();
@@ -94,7 +94,7 @@ export default {
         this.loading = true;
         this.clients = [];
         const { data } = await ServiceApi.index();
-        this.clients = data.map(i => {
+        this.clients = data.map((i) => {
           i.formattedValue = this.$numeral(i.value).format("$0,0.00");
           i.date = this.$moment(i.date).format("DD/MM/YYYY");
           return i;
@@ -106,9 +106,7 @@ export default {
           this.loading = false;
         }, 500);
       }
-    }
-  }
+    },
+  },
 };
 </script>
-
-<style lang="scss"></style>
