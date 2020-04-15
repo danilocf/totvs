@@ -1,6 +1,6 @@
 # challenge totvs
 
-![Print screen](https://github.com/danilocf/totvs/blob/master/prints/Screen%20Shot%202020-04-15%20at%2000.50.06.png)
+![Print screen](https://github.com/danilocf/totvs/blob/master/prints/Screen%20Shot%202020-04-15%20at%2001.17.15.png)
 
 ## Project setup
 
