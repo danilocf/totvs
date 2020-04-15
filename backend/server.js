@@ -11,15 +11,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-MongoClient.connect(
-  "mongodb://localhost:27017",
-  { useNewUrlParser: true },
-  (err, client) => {
-    if (err) throw err;
-    db = client.db("totvs");
-    app.listen(port, () => console.log(`Server listening on port ${port}!`));
-  }
-);
+MongoClient.connect("mongodb://mongo:27017", (err, client) => {
+  if (err) throw err;
+  db = client.db("totvs");
+  app.listen(port, () => console.log(`Server listening on port ${port}!`));
+});
 
 app.get("/clients", (req, res) => {
   db.collection("clients")

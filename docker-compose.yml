@@ -2,9 +2,8 @@ version: "3.7"
 
 services:
   backend:
-    container_name: backend
-    build:
-      context: ./backend
+    container_name: totvs-backend
+    build: ./backend
     depends_on:
       - mongo
     ports:
@@ -12,14 +11,19 @@ services:
 
   mongo:
     image: mongo
-    container_name: mongo
+    container_name: totvs-mongo
     ports:
       - "27017:27017"
 
+  mongo-seed:
+    container_name: totvs-mongo-seed
+    build: ./mongo-seed
+    depends_on:
+      - mongo
+
   frontend:
-    container_name: frontend
-    build:
-      context: ./frontend
+    container_name: totvs-frontend
+    build: ./frontend
     environment:
       VUE_APP_MOCK: "false"
       VUE_APP_API_URL: "http://0.0.0.0:3000"
