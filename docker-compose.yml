@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+    environment:
+      VUE_APP_MOCK: "false"
+      VUE_APP_API_URL: "http://0.0.0.0:3000"
+    ports:
+      - "8080:80"
