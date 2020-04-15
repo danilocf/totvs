@@ -1,8 +1,22 @@
 export default {
   index: [
     200,
-    {
-      success: true
-    }
+    [
+      {
+        name: "Danilo Freire",
+        value: 1500,
+        date: "2020-03-01T03:00:00.000Z"
+      },
+      {
+        name: "Isabela Freire",
+        value: 3000,
+        date: "2020-02-01T03:00:00.000Z"
+      },
+      {
+        name: "Veronica Freire",
+        value: 0,
+        date: "2020-04-14T03:00:00.000Z"
+      }
+    ]
   ]
 };
